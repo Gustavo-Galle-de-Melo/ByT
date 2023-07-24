@@ -1,0 +1,4 @@
+// https://codegolf.stackexchange.com/q/200306
+main = A print
+print = print 0
+A = A 1 0 0 0 0 0 1 0 // "AAA..."

@@ -1,0 +1,4 @@
+main = nop
+
+nop = aux 1 aux
+aux = 1 0 0

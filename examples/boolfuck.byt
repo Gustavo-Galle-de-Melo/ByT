@@ -1,0 +1,145 @@
+// This is a Boolfuck interpreter
+// https://esolangs.org/wiki/Boolfuck
+
+
+// Differences between this interpreter and the actual language:
+//   - This doesn't support input (',' command)
+//   - The output is in big-endian instead of little-endian
+//   - The output is printed backwards, this cancels out with the wrong endianess
+//       and prints the correct characters, but in the wrong order
+//   - Since the output is reversed, the padding bits go in the wrong place
+
+
+// main = { <insert code here> }
+main = hello_world
+
+// https://esolangs.org/wiki/Boolfuck
+// Prints "Hello, world!\n" backwards
+hello_world = { ; ; ; + ; + ; ; + ; + ; + ; + ; + ; + ; ; + ; ; + ; ; ; + ; ; + ; + ; ; + ; ; ; + ; ; + ; + ; ; + ; + ; ; ; ; + ; + ; ; + ; ; ; + ; ; + ; + ; + ; ; ; ; ; ; ; + ; + ; ; + ; ; ; + ; + ; ; ; + ; + ; ; ; ; + ; + ; ; + ; ; + ; + ; ; + ; ; ; + ; ; ; + ; ; + ; + ; ; + ; ; ; + ; + ; ; + ; ; + ; + ; + ; ; ; ; + ; + ; ; ; + ; + ; + ;    + ; ; ; ; }
+
+//           Does nothing           and then prints "A"
+printA = { + > > > + [ + < + ]    + ; + ; ; ; ; ; + ; + ; }
+
+// https://codegolf.stackexchange.com/a/182731
+// Prints 42 random characters
+// (different characters from the original because of the padding bits)
+42chars = { + [ [ > + > + [ < ; ; ; ] < ] > + > > ] > }
+
+
+
+< = i a
+> = j a
+[ = k a
+] = l a
++ = m a
+; = n a
+{ = m'
+} = f' o k' f' g' n' 0
+
+a = 0 r' A' r'
+b = F' z'
+c = 1 n' 3 W' K' E'
+d = 1 n' 3 P' K' E'
+e = X s' B' B'
+f = T A' A'
+g = k' e c
+h = k' f d
+i = p L b
+j = q N b
+k = r P b
+l = s V b
+m = t Z b
+n = u a' b
+o = t f' b
+p = v D b
+q = w E b
+r = x F b
+s = z H b
+t = B J b
+u = C K b
+v = i g
+w = j g
+x = k k' y c
+y = r' A' A'
+z = l k' A c
+A = X X 0 u' D' D'
+B = m g
+C = n g
+D = i h
+E = j h
+F = k k' G d
+G = T T 0 C' C'
+H = l k' I d
+I = z' z'
+J = m h
+K = n h
+L = M 1 n' k' p' 4 n' Z' y' y'
+M = i d' u' u' u' D'
+N = O 1 n' k' p' 4 n' S' y' y'
+O = j d' t' t' C'
+P = Q S F' z'
+Q = k k' R 1 n' 2 J' D'
+R = U T A'
+S = l' k d' q'
+T = l' m' L' G'
+U = m' l' F' z'
+V = l k' W 1 n' 2 W' w' E'
+W = Y X s' B'
+X = m' m' L' G'
+Y = d' B' q'
+Z = q' m d' 0 n' s'
+a' = b' c' F' z'
+b' = m' 0 n d' 0 0 t'
+c' = l' 1 n d' 0 0 t'
+d' = k' e' 1 n' 3 P' E' E'
+e' = l' r' A' q'
+f' = f' 0
+g' = i' h' L' z'
+h' = g' n' k' p' 0 n'
+i' = j' j' f' m' o d' J' O'
+j' = j' m' k'
+k' = 1 o' 0
+l' = 0 o'
+m' = 1 0
+n' = 0 0 0
+o' = p' p' p'
+p' = 1 0 0
+q' = o' 0
+r' = q' 0
+s' = r' 0
+t' = s' 0
+u' = t' 0
+v' = u' 0
+w' = v' 0
+x' = w' 0
+y' = x' 0
+z' = o' r'
+A' = z' 0
+B' = A' 0
+C' = B' 0
+D' = C' 0
+E' = D' 0
+F' = 1 A'
+G' = o' B'
+H' = G' 0
+I' = H' 0
+J' = I' 0
+K' = J' 0
+L' = 1 H'
+M' = o' I'
+N' = M' 0
+O' = N' 0
+P' = O' 0
+Q' = P' 0
+R' = Q' 0
+S' = R' 0
+T' = o' O'
+U' = T' 0
+V' = U' 0
+W' = V' 0
+X' = W' 0
+Y' = X' 0
+Z' = Y' 0
+2 = 0 n' 0
+3 = 0 2 0
+4 = 0 3 0
